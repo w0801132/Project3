@@ -2,7 +2,7 @@ var data =  [{
   "Museum ID": 8400200098,
   "Museum Name": "ALASKA AVIATION HERITAGE MUSEUM",
   "Legal Name": "ALASKA AVIATION HERITAGE MUSEUM",
-  "Alternate Name": "x",
+  "Alternate Name": "z",
   "Museum Type": "HISTORY MUSEUM",
   "Institution Name": "x",
   "Street Address (Administrative Location)": "4721 AIRCRAFT DR",
