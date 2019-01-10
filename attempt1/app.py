@@ -50,15 +50,168 @@ def botanical_data():
     group_by(Museums.state).all()
 
     df = pd.DataFrame(results, columns=['states', 'type_count'])
-    #df = pd.read_sql_query(query_statement, db.session.bind)
 
     # Format the data for Plotly
-    trace = {
+    plot_trace = {
         "x": df["states"].values.tolist(),
         "y": df["type_count"].values.tolist(),
         "type": "bar"
     }
-    return jsonify(trace)
+    return jsonify(plot_trace)
+
+
+@app.route("/art")
+def art_data():
+    """Return state and museum type"""
+
+    # Query for the count of museums by type, by state
+    results = db.session.query(Museums.state, func.count(Museums.museumtype)).\
+    filter_by(museumtype = 'ART MUSEUM').\
+    group_by(Museums.state).all()
+
+    df = pd.DataFrame(results, columns=['states', 'type_count'])
+
+    # Format the data for Plotly
+    plot_trace = {
+        "x": df["states"].values.tolist(),
+        "y": df["type_count"].values.tolist(),
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+
+@app.route("/children")
+def children_data():
+    """Return state and museum type"""
+
+    # Query for the count of museums by type, by state
+    results = db.session.query(Museums.state, func.count(Museums.museumtype)).\
+    filter_by(museumtype = "CHILDREN'S MUSEUM").\
+    group_by(Museums.state).all()
+
+    df = pd.DataFrame(results, columns=['states', 'type_count'])
+
+    # Format the data for Plotly
+    plot_trace = {
+        "x": df["states"].values.tolist(),
+        "y": df["type_count"].values.tolist(),
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/general")
+def general_data():
+    """Return state and museum type"""
+
+    # Query for the count of museums by type, by state
+    results = db.session.query(Museums.state, func.count(Museums.museumtype)).\
+    filter_by(museumtype = 'GENERAL MUSEUM').\
+    group_by(Museums.state).all()
+
+    df = pd.DataFrame(results, columns=['states', 'type_count'])
+
+    # Format the data for Plotly
+    plot_trace = {
+        "x": df["states"].values.tolist(),
+        "y": df["type_count"].values.tolist(),
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/historic")
+def historic_data():
+    """Return state and museum type"""
+
+    # Query for the count of museums by type, by state
+    results = db.session.query(Museums.state, func.count(Museums.museumtype)).\
+    filter_by(museumtype = 'HISTORIC PRESERVATION').\
+    group_by(Museums.state).all()
+
+    df = pd.DataFrame(results, columns=['states', 'type_count'])
+
+    # Format the data for Plotly
+    plot_trace = {
+        "x": df["states"].values.tolist(),
+        "y": df["type_count"].values.tolist(),
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/history")
+def history_data():
+    """Return state and museum type"""
+
+    # Query for the count of museums by type, by state
+    results = db.session.query(Museums.state, func.count(Museums.museumtype)).\
+    filter_by(museumtype = 'HISTORY MUSEUM').\
+    group_by(Museums.state).all()
+
+    df = pd.DataFrame(results, columns=['states', 'type_count'])
+
+    # Format the data for Plotly
+    plot_trace = {
+        "x": df["states"].values.tolist(),
+        "y": df["type_count"].values.tolist(),
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/natural")
+def natural_data():
+    """Return state and museum type"""
+
+    # Query for the count of museums by type, by state
+    results = db.session.query(Museums.state, func.count(Museums.museumtype)).\
+    filter_by(museumtype = 'NATURAL HISTORY MUSEUM').\
+    group_by(Museums.state).all()
+
+    df = pd.DataFrame(results, columns=['states', 'type_count'])
+
+    # Format the data for Plotly
+    plot_trace = {
+        "x": df["states"].values.tolist(),
+        "y": df["type_count"].values.tolist(),
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/science")
+def science_data():
+    """Return state and museum type"""
+
+    # Query for the count of museums by type, by state
+    results = db.session.query(Museums.state, func.count(Museums.museumtype)).\
+    filter_by(museumtype = 'SCIENCE & TECHNOLOGY MUSEUM OR PLANETARIUM').\
+    group_by(Museums.state).all()
+
+    df = pd.DataFrame(results, columns=['states', 'type_count'])
+
+    # Format the data for Plotly
+    plot_trace = {
+        "x": df["states"].values.tolist(),
+        "y": df["type_count"].values.tolist(),
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/zoo")
+def zoo_data():
+    """Return state and museum type"""
+
+    # Query for the count of museums by type, by state
+    results = db.session.query(Museums.state, func.count(Museums.museumtype)).\
+    filter_by(museumtype = 'ZOO, AQUARIUM, OR WILDLIFE CONSERVATION').\
+    group_by(Museums.state).all()
+
+    df = pd.DataFrame(results, columns=['states', 'type_count'])
+
+    # Format the data for Plotly
+    plot_trace = {
+        "x": df["states"].values.tolist(),
+        "y": df["type_count"].values.tolist(),
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
 
 
 if __name__ == '__main__':
