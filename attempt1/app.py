@@ -1,0 +1,65 @@
+import pandas as pd
+
+from flask import (
+    Flask,
+    render_template,
+    jsonify)
+
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
+
+app = Flask(__name__)
+
+# The database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/museums.sqlite"
+
+db = SQLAlchemy(app)
+
+#Create our database model
+class Museums(db.Model):
+    __tablename__ = 'funstuff'
+
+    museumid= db.Column(db.Integer, primary_key=True)
+    museumtype = db.Column(db.String)
+    state = db.Column(db.String)
+
+    def __repr__(self):
+        return '<Museums %r>' % (self.name)
+
+# Create database tables
+# @app.before_first_request
+# def setup():
+    # Recreate database each time for demo
+    # db.drop_all()
+    # db.create_all()
+
+
+@app.route("/")
+def home():
+    """Render Home Page."""
+    return render_template("index.html")
+
+
+@app.route("/botanical")
+def botanical_data():
+    """Return state and museum type"""
+
+    # Query for the count of museums by type, by state
+    results = db.session.query(Museums.state, func.count(Museums.museumtype)).\
+    filter_by(museumtype = 'ARBORETUM, BOTANICAL GARDEN, OR NATURE CENTER').\
+    group_by(Museums.state).all()
+
+    df = pd.DataFrame(results, columns=['states', 'type_count'])
+    #df = pd.read_sql_query(query_statement, db.session.bind)
+
+    # Format the data for Plotly
+    trace = {
+        "x": df["states"].values.tolist(),
+        "y": df["type_count"].values.tolist(),
+        "type": "bar"
+    }
+    return jsonify(trace)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
