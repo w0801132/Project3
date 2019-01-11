@@ -31,7 +31,7 @@ function handleClick() {
 
   // Grab the datetime value from the filter
   // var st = d3.select("#State2").property("value");
-  var st = d3.select("#State2").property("value");
+  var st = d3.select("#State").property("value");
   let filteredData = tableData;
 
   // Check to see if a date was entered and filter the
@@ -39,7 +39,7 @@ function handleClick() {
   if (st) {
     // Apply `filter` to the table data to only keep the
     // rows where the `datetime` value matches the filter value
-    filteredData = filteredData.filter(row => row.State2 === st);
+    filteredData = filteredData.filter(row => row.State === st);
   }
 
   // Rebuild the table using the filtered data
