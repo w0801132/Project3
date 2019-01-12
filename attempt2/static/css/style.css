@@ -18,6 +18,24 @@ body {
   overflow: auto;
 }
 
+.chartobject-1 {
+  left: 50%;
+    margin-right: -50%;}
+
+.kpi-header {
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+.bar {
+    background-color: #1b2026;
+}
+
+#chartobject-1 {
+  margin-left: 20px;
+}
+
 /* The footer is positioned at the bottom of the page */
 .footer {
   position: absolute;
@@ -61,6 +79,10 @@ body {
   padding: 0;
 }
 
+.filters .filter-btn {
+  margin-left: 10px;
+}
+
 .filters {
   margin-top: 10px;
 }
@@ -69,7 +91,7 @@ select {
   display: block;
   width: 100%;
   padding: 8px;
-  color: #8e979f;
+  color: #F5FFFA;
   outline: none;
 }
 
@@ -94,7 +116,7 @@ select {
 /* The styles for the parallax */
 .hero {
   position: relative;
-  height: 550px;
+  height: 200px;
   padding: 20px;
   margin: 0;
   background: black;
@@ -120,22 +142,22 @@ select {
 /* input placeholder color changes */
 .form-control::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #8e979f;
+  color: #F5FFFA;
 }
 
 .form-control::-moz-placeholder {
   /* Firefox 19+ */
-  color: #8e979f;
+  color: #F5FFFA;
 }
 
 .form-control:-ms-input-placeholder {
   /* IE 10+ */
-  color: #8e979f;
+  color: #F5FFFA;
 }
 
 .form-control:-moz-placeholder {
   /* Firefox 18- */
-  color: #8e979f;
+  color: #F5FFFA;
 }
 
 /* media queries which will only be activated at specific screen sizes */

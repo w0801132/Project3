@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sweet Jesus I Hate This</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <title>Museum Guide</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
 </head>
 <body>
   <div class="wrapper">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">Knowledge is Power
+            <a class="navbar-brand" href="index.html">The Ultimate Guide to Museums
               <!-- <img class="nav-ufo" src="static/images/ufo.svg"> -->
             </a>
           </div>
         </div>
       </nav>
       <div class="hero text-center">
-        <h1>Museums</h1>
-        <p>Learning is Fun</p>
+        <!-- <h1>Museums</h1>
+        <p>Learning is Fun</p> -->
       </div>
-
+      <!-- <div class="col-md-10">
+        <h1>Select a museum category from the dropdown in the bar chart to view the number of museums in that category for each state. Rate your favorite museum using the gauge. Find museums in your state by searching in the table.</h1>
+      </div> -->
+      <div class="row m-auto kpi-container"></div>
+      <!-- <div class="col-12 chart wrapper" id="chart-wrapper2"> -->
+      <div class="chart-header kpi-header">View the # of Museums in Each State by Category</div>
+    <!-- </div> -->
       <div id="bar"></div>
       <select id="selDataset" onchange="getData(this.value)">
           <option value="botanical">Arboretum, Botanical Garden, or Nature Center</option>
@@ -39,14 +46,19 @@
           <option value="science">Science & Technology Museum</option>
           <option value="zoo">Zoo, Aquarium, or Wildlife Conservation</option>
       </select>
-      <script src="static/js/data.js"></script>
-      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    </div>
+      <script src="../static/js/data.js"></script>
+      <script src="../static/js/app.js"></script>
+        <div class="chart-header kpi-header">Rate your Favorite Museum</div>
+      <div id="chart-container" align='center'>FusionCharts will render here</div>
       <div class="container">
+        <div class="chart-header kpi-header">Search for Museums by State</div>
         <div class="row margin-top-50">
           <div class="col-md-2">
+
             <aside class="filters">
               <div class="panel panel-default">
-                <div class="panel-heading">Filter Search</div>
+                <div class="panel-heading">Search Museums</div>
                 <div class="panel-body">
                   <form>
                     <div class="form-group">
@@ -88,12 +100,13 @@
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <span class="bottom">Knowledge is Power</span>
-      </footer>
-    </div>
+      <!-- <footer class="footer">
+        <!-- <span class="bottom">Knowledge is Power</span> -->
+      <!-- </footer>  -->
+
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>-->
-    <script src="static/js/app.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script type="../text/javascript" src="static/js/app.js"></script>
 
 
 </body>
